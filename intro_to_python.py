@@ -158,13 +158,26 @@ else:
 # - Contain at least one special character (!, @, #, $, %, etc.)
 
 password = input("Enter a password: ")
+
 password_strength = False
 
-if len(password < 8):
-    print('not long enough')
+if len(password) < 8:
+    print("This is not enough characters!")
 
+if not any(char.isupper() for char in password):
+    print("This does not have an upper case!")
 
+if not any(char.islower() for char in password):
+    print("This does not have an lower case!") 
 
+if not any(char.isdigit() for char in password):
+    print("This does not have a digit!")
+
+if not any(char.isalnum() for char in password):
+    print("This does not have a special character!")
+
+if password_strength == True:
+    print("You have a strong password!")
 
 # Write code to check each of these rules and print:
 # - "Strong password!" if all rules are met
